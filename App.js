@@ -13,7 +13,9 @@ export default class App extends React.Component {
       return new Promise((resolve, reject) => {
         fetch(close)
          .then(res => res.json())
-         .then(data => this.setState({ chart: data.bpi }))
+         .then(data => {
+           
+          this.setState({ chart: data.bpi })})
         .then(() => {
           fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
            .then(response => response.json())
